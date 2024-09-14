@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/favicon.png" type="">
+
+  <title> abc learning platform </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+  
+  <style>
+            
+    .container{overflow: hidden}
+    .tab{float: left;}
+    .tab-2{margin-left: 300px}
+    .tab-2 input{display: block;margin-bottom: 5px}
+    tr{transition:all .25s ease-in-out}
+    tr:hover{background-color:#EEE;cursor: pointer}
+    
+</style>
+
+
+
+</head>
+
+<body>
+
+  <div class="hero_area">
+
+    <div class="hero_bg_box">
+      <div class="bg_img_box">
+        <img src="images/hero-bg.png" alt="">
+      </div>
+    </div>
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              ABC Learing Platform
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html"> About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="service.html">Courses</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="why.html">Why Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="team.html">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="register.html"> <i class="fa fa-user" aria-hidden="true"></i> Register</a>
+              </li>
+              <form class="form-inline">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </form>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+  
+
+    <body>
+
+      <div class="container">
+        <div class="tab tab-1">
+            <table id="table" style="max-width: 30%; max-height: 30%;"  border="2">
+                <tr>
+                    <th> <h4> Name </h4></th>
+                    <th><h4>Country </h4></th>
+                    <th><h4>Age</h4></th>
+                </tr>
+                <tr>
+                    <td>Sudhanshu</td>
+                    <td>India</td>
+                    <td>22</td>
+                </tr>
+                <tr>
+                    <td>Aanand</td>
+                    <td>Singapore</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>Shruti</td>
+                    <td>Paris</td>
+                    <td>20</td>
+                </tr>
+            </table>
+        </div>
+        <div class="tab tab-2">
+           <h5 style="color: darkturquoise;"> Name : </h5> <input type="text" name="fname" id="fname" >
+           <h5 style="color: darkturquoise;"> Country : </h5><input type="text" name="lname" id="lname">
+           <h5 style="color: darkturquoise;"> Age : </h5><input type="number" name="age" id="age">
+            
+            <button onclick="addHtmlTableRow();">Add</button>
+            <button onclick="editHtmlTbleSelectedRow();">Edit</button>
+            <button onclick="removeSelectedRow();">Remove</button>
+        </div>
+    </div>
+<br><br><br><br><br>
+
+    <script>
+            
+      var rIndex,
+          table = document.getElementById("table");
+      
+      // check the empty input
+      function checkEmptyInput()
+      {
+          var isEmpty = false,
+              fname = document.getElementById("fname").value,
+              lname = document.getElementById("lname").value,
+              age = document.getElementById("age").value;
+      
+          if(fname === ""){
+              alert("First Name Connot Be Empty");
+              isEmpty = true;
+          }
+          else if(lname === ""){
+              alert("Last Name Connot Be Empty");
+              isEmpty = true;
+          }
+          else if(age === ""){
+              alert("Age Connot Be Empty");
+              isEmpty = true;
+          }
+          return isEmpty;
+      }
+      
+      // add Row
+      function addHtmlTableRow()
+      {
+          // get the table by id
+          // create a new row and cells
+          // get value from input text
+          // set the values into row cell's
+          if(!checkEmptyInput()){
+          var newRow = table.insertRow(table.length),
+              cell1 = newRow.insertCell(0),
+              cell2 = newRow.insertCell(1),
+              cell3 = newRow.insertCell(2),
+              fname = document.getElementById("fname").value,
+              lname = document.getElementById("lname").value,
+              age = document.getElementById("age").value;
+      
+          cell1.innerHTML = fname;
+          cell2.innerHTML = lname;
+          cell3.innerHTML = age;
+          // call the function to set the event to the new row
+          selectedRowToInput();
+      }
+      }
+      
+      // display selected row data into input text
+      function selectedRowToInput()
+      {
+          
+          for(var i = 1; i < table.rows.length; i++)
+          {
+              table.rows[i].onclick = function()
+              {
+                // get the seected row index
+                rIndex = this.rowIndex;
+                document.getElementById("fname").value = this.cells[0].innerHTML;
+                document.getElementById("lname").value = this.cells[1].innerHTML;
+                document.getElementById("age").value = this.cells[2].innerHTML;
+              };
+          }
+      }
+      selectedRowToInput();
+      
+      function editHtmlTbleSelectedRow()
+      {
+          var fname = document.getElementById("fname").value,
+              lname = document.getElementById("lname").value,
+              age = document.getElementById("age").value;
+         if(!checkEmptyInput()){
+          table.rows[rIndex].cells[0].innerHTML = fname;
+          table.rows[rIndex].cells[1].innerHTML = lname;
+          table.rows[rIndex].cells[2].innerHTML = age;
+        }
+      }
+      
+      function removeSelectedRow()
+      {
+          table.deleteRow(rIndex);
+          // clear input text
+          document.getElementById("fname").value = "";
+          document.getElementById("lname").value = "";
+          document.getElementById("age").value = "";
+      }
+  </script>
+
+            
+            
+
+
+
+
+
+
+
+  <!-- info section -->
+
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_contact">
+            <h4>
+              Address
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +01 1234567890
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  abclearning@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="info_social">
+            <a href="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_detail">
+            <h4>
+              Info
+            </h4>
+            <p>
+             Transform your life through education
+             advancing your skills
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-2 mx-auto info_col">
+          <div class="info_link_box">
+            <h4>
+              Links
+            </h4>
+            <div class="info_links">
+              <a class="active" href="sitemap.html">
+                SiteMap
+              </a>
+              <a class="" href="about.html">
+                About Us
+              </a>
+              <a class="" href="service.html">
+                Courses
+              </a>
+              <a class="" href="privacypolicy.html">Privacy Policy
+              </a>
+              <a class="" href="team.html">
+                Contact Us
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info_col ">
+          <h4>
+            Admin Login
+          </h4>
+          <form action="admin.html">
+            
+            <button type="submit">
+              Login
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info section -->
+
+  <!-- footer section -->
+  <section class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span>Copyright ABC Learning all right reserved
+        <a href="index.html">Abc learning</a>
+      </p>
+    </div>
+  </section>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <!-- owl slider -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- custom js -->
+  <script type="text/javascript" src="js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+
+</body>
+
+</html>
